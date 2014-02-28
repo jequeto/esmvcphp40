@@ -257,3 +257,5 @@ create table daw2_descargas
 )
 engine=myisam;
 
+# Creamos un índice para acelerar las consultas que filtran por la columna fichero.
+create index dwa2_descargas_fichero_i on daw2_descargas(fichero);
