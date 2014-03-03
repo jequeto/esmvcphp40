@@ -78,7 +78,7 @@
 		
 		<div id='globals'>
 			<?php
-				print "<pre>"; print_r($GLOBALS);print "</pre>";
+				var_dump($GLOBALS);
 			?>
 		</div>
 		

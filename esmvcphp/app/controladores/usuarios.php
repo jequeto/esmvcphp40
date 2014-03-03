@@ -13,7 +13,9 @@ class usuarios extends \core\Controlador {
 		$datos['filas'] = \modelos\Modelo_SQL::table("usuarios")->select($clausulas);
 		
 		$datos['view_content'] = \core\Vista::generar(__FUNCTION__, $datos);
+		
 		$http_body = \core\Vista_Plantilla::generar("DEFAULT", $datos);
+		
 		\core\HTTP_Respuesta::enviar($http_body);
 		
 	}

@@ -38,7 +38,7 @@
 		</script>
 		
 	</head>
-
+	
 	<body onload='onload();'>
 	
 		<!-- Contenido que se visualizará en el navegador, organizado con la ayuda de etiquetas html -->
@@ -73,33 +73,17 @@
 			echo "<br />Tiempo inactivo: <span id='tiempo_inactivo'></span>";	
 			?>
 		</div>
-		
+	
 		<div id="div_menu" >
 			<fieldset>
 				<legend>Menú - Índice - Barra de navegación:</legend>
 					<ul id="menu" class="menu">
-<!--						<li class="item"><a href="<?php //echo \core\URL::generar(); ?>" title="Inicio">Inicio</a></li>-->
-						<?php echo \core\HTML_Tag::li_menu("item", array("inicio"), "Inicio"); ?>
-<!--						<li class="item"><a href="<?php //echo \core\URL::generar("revista"); ?>" title="Revista">Revista</a></li>-->
-						<?php echo \core\HTML_Tag::li_menu("item", array("revista"), "Revista"); ?>
-<!--						<li class="item"><a href="<?php //echo \core\URL::generar("libros"); ?>" title="Libros leídos">Libros</a></li>-->
-						<?php echo \core\HTML_Tag::li_menu("item", array("libros"), "Libros"); ?>
-						
-<!--						<li class="item"><a href="<?php //echo \core\URL::generar("inicio/internacional"); ?>" title="Internacional">Internacional</a></li>-->
-						<?php echo \core\HTML_Tag::li_menu("item", array("inicio", "internacional"), "Internacional"); ?>
-						
-						
-<!--						<li class="item"><a href="<?php //echo \core\URL::generar("usuarios"); ?>" title="Usuarios">Usuarios</a></li>-->
-						<?php echo \core\HTML_Tag::li_menu("item", array("usuarios"), "Usuarios"); ?>
-<!--						<li class="item"><a href="<?php //echo \core\URL::generar("categorias"); ?>" title="Categorías">Categorías</a></li>-->
-						
-						
-<!--						<li class="item"><a href="<?php //echo \core\URL::generar("articulos"); ?>" title="Artículos">Artículos</a></li>-->
-						
+						<?php echo \core\HTML_Tag::li_menu("item", array("inicio"), "Inicio"); ?>						 <?php echo \core\HTML_Tag::li_menu("item", array("usuarios"), "Usuarios"); ?>
 						<?php echo \core\HTML_Tag::li_menu("item", array("roles"), "Roles"); ?>
 					</ul>
 			</fieldset>
 		</div>
+		
 		<div id="sendero_migas_pan">
 			<?php echo \controladores\sendero::ver(); ?>
 		</div>
@@ -107,11 +91,11 @@
 		<div id="view_content">
 			
 			<?php
-				echo $datos['view_content'];
+				
+				print($datos['view_content']);
 			?>
 			
 		</div>
-
 	
 		<div id="pie">
 			
@@ -121,7 +105,6 @@
 		</div>
 		
 		<?php echo \core\HTML_Tag::post_request_form(); ?>
-		
 		
 		<script type="text/javascript" />
 			var alerta;
@@ -139,7 +122,6 @@
 			}
 
 		</script>
-
 	
 <?php
 if (isset($_SESSION["alerta"])) {
@@ -160,25 +142,11 @@ elseif (isset($datos["alerta"])) {
 heredoc;
 }
 ?>	
-	
-		<div id='globals'>
-			<?php
-				 print "<pre>"; 
-//				  print_r($GLOBALS);
-//				 print("\$_GET "); print_r($_GET);
-//				 print("\$_POST ");print_r($_POST);
-//				 print("\$_COOKIE ");print_r($_COOKIE);
-//				 print("\$_REQUEST ");print_r($_REQUEST);
-				 print("\$_SESSION ");echo count($_SESSION);
-				 print_r($_SESSION["usuario"]);
-//				 print("\$_SERVER ");print_r($_SERVER);
-				 print "</pre>";
-//				 print("xdebug_get_code_coverage() ");
-//				 var_dump(xdebug_get_code_coverage());
-			?>
-		</div>
-		
-		
+	<div id="globals">
+	<?php
+				var_dump($GLOBALS);
+	?>
+	</div>
 		
 	</body>
 

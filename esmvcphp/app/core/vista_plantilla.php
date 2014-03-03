@@ -46,8 +46,7 @@ class Vista_Plantilla extends \core\Clase_Base {
 		if ( ! $encontrado) {
 					throw new \Exception(__METHOD__." Error: no existe la plantilla $nombre. Buscada en $path_buscados .");
 		}
-		
-		
+				
 		$datos["controlador_clase"] = \core\Distribuidor::get_controlador_instanciado();
 		$datos["controlador_metodo"] = \core\Distribuidor::get_metodo_invocado();
 		if (! isset($datos["url_volver"]))
