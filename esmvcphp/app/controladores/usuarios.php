@@ -13,7 +13,9 @@ class usuarios extends \core\Controlador {
 		$datos['filas'] = \modelos\Modelo_SQL::table("usuarios")->select($clausulas);
 		
 		$datos['view_content'] = \core\Vista::generar(__FUNCTION__, $datos);
+		
 		$http_body = \core\Vista_Plantilla::generar("DEFAULT", $datos);
+		
 		\core\HTTP_Respuesta::enviar($http_body);
 		
 	}
@@ -45,7 +47,7 @@ class usuarios extends \core\Controlador {
 	public function form_login_validar(array $datos = array()) {
 		
 		if (\core\Usuario::$login != "anonimo") {
-								exit(__METHOD__.__LINE__);
+//								exit(__METHOD__.__LINE__);
 
 			$datos["mensaje"] = "Ya te encuentras conectado. Utiliza el menú para navegar.";
 			\core\Distribuidor::cargar_controlador("mensajes", "mensaje", $datos);

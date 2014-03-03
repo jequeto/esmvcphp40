@@ -66,22 +66,25 @@ class HTTP_Respuesta extends \core\Clase_Base {
 	 * @param string|binary $http_body_content Contenido del cuerpo de la respuesta HTTP
 	 */
 	public static function enviar($http_body_content = null) {
-		
+
 		if ($http_body_content) {
 			self::set_http_body($http_body_content);
 		}
 		
 		// Añadimos a la cabecera la longitud del cuerpo, si es mayor que cero
 		if (strlen(self::$http_body_content)) {
-			self::set_header_line("Content-Length: ", (string) strlen(self::$http_body_content) );
+			self::set_header_line("Content-Length", (string)mb_strlen(self::$http_body_content, "utf-8") );
+//			self::set_header_line("Content-Length", (string)strlen(self::$http_body_content) );
+
+//			echo(strlen($http_body_content)); echo(mb_internal_encoding()); echo(mb_strlen($http_body_content, "utf8")); exit(__METHOD__);
 		}
 		
 		// Enviar HEADER
 		self::send_header();
-		
+
 		// Enviar COOKIES
 		self::cookies_send();
-		
+
 		// Enviar BODY
 		self::send_body();
 		
@@ -92,14 +95,15 @@ class HTTP_Respuesta extends \core\Clase_Base {
 		
 		$fichero = ''; // Almacena información en caso de header enviado
 		$linea = ''; // Almacena información en caso de header enviado
-		
+				
 		if ( ! headers_sent($fichero, $linea)) { // Enviamos en encabezado HTTP
 			if ( ! isset(self::$http_header_lines['Content-Type']) ) {
 				self::$http_header_lines['Content-Type'] = \core\Configuracion::$tipo_mime_por_defecto;
 			}
+
 //			http_response_code(self::$http_header_status); // Enviamos el código de la respuesta. Atención solo válidopara php >=5.4.1
-			header(" ", true, (integer) self::$http_header_status); // Equivalente a la línea anterior y es válido desd php >=5.3
-			
+			header(" ", true, (integer) self::$http_header_status); // Equivalente a la línea anterior y es válido desde php >=5.3
+
 			foreach (self::$http_header_lines as $key => $value) {
 				// Enviamos las líneas del header
 				header("$key: $value");
@@ -108,7 +112,7 @@ class HTTP_Respuesta extends \core\Clase_Base {
 		else { // El encabezado HTTP ya se ha enviado
 			echo __METHOD__." Warning: El encabezado php se originó en el fichero <b>$fichero</b> , en la línea <b>$linea</b>.<br />";
 		}
-		
+
 	}
 	
 	
@@ -120,9 +124,9 @@ class HTTP_Respuesta extends \core\Clase_Base {
 	
 	
 	private static function send_body() {
-		
-		print self::$http_body_content;
-		
+
+		echo(self::$http_body_content);
+
 	}
 
 	
