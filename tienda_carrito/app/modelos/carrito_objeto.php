@@ -42,14 +42,15 @@ abstract class carrito_objeto extends \modelos\Modelo_SQL implements \modelos\ca
 	public function persistir() {
 		
 		$texto = $this->escape_string((serialize($this)));
+		exit($texto);
 		
 		$clausulas["where"] = " id = '{$this->id}' ";
 		$filas = self::table("carritos")->select($clausulas);
 		if (count($filas)) {
-			$this->tabla("carritos")->update(array("id" => (string)$this->id, "fechaHoraInicio" => $this->fechaHoraInicio, "texto" => $texto));
+			$this->tabla("carritos")->update(array("id" => (string)$this->id, "fechaHoraInicio" => $this->fechaHoraInicio, "texto" => "'$texto'"));
 		}
 		else {
-			$this->tabla("carritos")->insert(array("id" => $this->id, "fechaHoraInicio" => $this->fechaHoraInicio, "texto" => $texto));
+			$this->tabla("carritos")->insert(array("id" => $this->id, "fechaHoraInicio" => $this->fechaHoraInicio, "texto" => "'$texto'"));
 		}
 		
 	}

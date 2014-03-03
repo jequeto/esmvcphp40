@@ -70,6 +70,7 @@ class Configuracion {
 	public static $use_db = true;
 	// localhost
 	public static $db = array(
+		"dsn"      => "mysql:host=localhost;dbname=daw2", // Usada por PDO	
 		'server'   => 'localhost',
 		'user'     => 'daw2_user',
 		'password' => 'daw2_user',
@@ -79,6 +80,7 @@ class Configuracion {
 
 	// hostinger
 //	public static $db = array(
+//		"dsn"      => "mysql:host=mysql.hostinger.e;dbname=u452950836_daw2", // Usada por PDO	
 //		'server'   => 'mysql.hostinger.es',
 //		'user'     => 'u452950836_daw2',
 //		'password' => 'u452950836_daw2',

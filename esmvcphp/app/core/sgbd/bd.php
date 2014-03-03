@@ -13,7 +13,7 @@ namespace core\sgbd;
  * Después, esta clase \core\sgbd\bd se extenderá cuando se creen las
  * clases específicas para implementar la manipulación y recuperación de datos en cada tabla, clases que estarán en la carpeta app\datos\nombre_tabla.php
  */
-class bd extends \core\sgbd\mysqli {
+class bd extends \core\sgbd\PDO {
 	
 	
 	/**

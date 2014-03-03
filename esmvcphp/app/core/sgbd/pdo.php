@@ -1,17 +1,17 @@
- <?php
+<?php
 namespace core\sgbd;
 
 
 /**
  * Clase para conectar y operar con Mysql
  */
-abstract class pdo implements \core\sgbd\SQL_interface {
+abstract class PDO implements \core\sgbd\SQL_interface {
 	
 	/**
 	 * Variable usada para facilitar la ocultación del resultado de setencias de depuración.
 	 * @var boolean 
 	 */
-	private static $depuracion = false;
+	private static $depuracion = true;
 	
 	/**
 	 * Resource o Link que guarda la conexión con el SGBD
@@ -164,10 +164,10 @@ abstract class pdo implements \core\sgbd\SQL_interface {
 		self::$query = $sql; // Guardamos la consulta a ejecutar.
 		
 		if (preg_match("/select/i", $sql)) {
-			self::$result = $connection->query($sql);
+			self::$result = self::$connection->query($sql);
 		}
 		else {
-			self::$result = $connection->exec($sql);
+			self::$result = self::$connection->exec($sql);
 		}
 		
 		

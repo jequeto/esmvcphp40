@@ -69,16 +69,16 @@ class Autoloader {
 		// Sustituir las \ que separan el namespaces del nombre de la clase por DS que separa carpetas
 		$class_name = str_replace(array("\\", ), array(DS , ), $class_name);
 		
-		$carpetas = "";
+		$carpetas = array();
 		foreach (self::$applications as $application => $valid) {
-			$carpetas .= $application."  "; 
+			array_push($carpetas, $application); 
 			if ( $fichero_encontrado = self::buscar($application, $class_name))
 				break;
 		}
 		
 		if ( ! $fichero_encontrado) {
 			
-			throw new \Exception(__METHOD__." -> No se ha encontrado la clase $class_name el la/s carpeta/s <b>$carpetas</b>");
+			throw new \Exception(__METHOD__." -> No se ha encontrado la clase $class_name el la/s carpeta/s: ".implode(", ",$carpetas)."");
 		}
 			
 		
