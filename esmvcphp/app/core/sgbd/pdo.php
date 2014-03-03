@@ -478,7 +478,8 @@ abstract class PDO implements \core\sgbd\SQL_interface {
 	public static function escape_string($cadena) {
 		
 		if (\core\Configuracion::$use_db) {
-			return self::$connection->quote($cadena);
+//			return self::$connection->quote($cadena);
+			return str_replace(array("'", "\"", "\\"), array("\\'", "\\\"", "\\\\"), $cadena);
 		}
 		else {
 			return $cadena;

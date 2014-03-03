@@ -497,6 +497,7 @@ class Validaciones  {
 	 * @return false|string
 	 */
 	public static function errores_referencia(array $valores, $tabla, array $columnas) {
+		
 		$mensaje = null;
 		$no_null=0;
 		for ($i=0; $i<count($valores); $i++) {
