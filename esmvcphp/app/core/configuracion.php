@@ -22,7 +22,7 @@ namespace core {
 		public static $session_name = "PHPSESSID";
 		public static $session_activate = true;
 		public static $session_lifetime = 0; // Segundos de duración de la cookie de sessionsession.cookie_lifetime
-		public static $session_cookie_path = "/";
+		public static $session_cookie_path = "/esmvcphp";
 		public static $session_cookie_domain = "";
 		public static $session_cookie_secure = false;
 		public static $session_cookie_httponly = false;
