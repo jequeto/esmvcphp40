@@ -41,24 +41,13 @@ class Aplicacion extends \core\Clase_Base {
 		// y para memorizar URL/URI (\core\URL) 
 		\core\SESSION::iniciar();
 		
-		
-		
 		if (\core\Configuracion::$use_db) \core\sgbd\bd::connect();
 		
-		
-		
-		
 		if ( \core\Configuracion::$url_registrar_anterior) \core\URL::registrar();
-		
 			
 		// Reconocer el usuario que ha iniciado la sesión de trabajo o que continúa dentro de una sesión de trabajo.
 		if (\core\Configuracion::$usuarios) \core\Usuario::iniciar();
-				
-		// Los permisos los usamos si trabajamos con la ACL (Access Control List) para definir los permisos de los usuarios
-		// \core\Permisos::iniciar();
-		
-		
-		
+						
 		// Estudio del idioma, después de que la url amigable se pase a parámetros GET
 		if (\core\Configuracion::$idioma_sensibilidad) \core\Idioma::init();
 		
