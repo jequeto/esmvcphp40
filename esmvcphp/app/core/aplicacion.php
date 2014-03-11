@@ -1,7 +1,5 @@
 <?php
 namespace core;
-//require_once PATH_APP."core/clase_base.php";
-//require_once PATH_APP."core/respuesta.php";
 
 
 /**
