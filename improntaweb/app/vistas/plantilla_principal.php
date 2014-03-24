@@ -59,7 +59,7 @@
 				<legend><?php echo iText("leyenda_menu", "plantilla_internacional"); ?>:</legend>
 					<ul id="menu" class="menu">
 						<li class="item"><a href="<?php echo \core\URL::generar("inicio"); ?>" title="Inicio"><?php echo iText("Inicio", "plantilla_internacional"); ?></a></li>
-						<li class="item"><a href="<?php echo \core\URL::generar("libros"); ?>" title="Libros leídos"><?php echo iText("Libros", "plantilla_internacional"); ?></a></li>
+						<li class="item"><a href="<?php echo \core\URL::generar("visitantes/index"); ?>" title="Visitantes del taller"><?php echo iText("Visitantes", "plantilla_internacional"); ?></a></li>
 					</ul>
 			</fieldset>
 		</div>
@@ -75,15 +75,16 @@
 		<div id="pie">
 			<hr />
 		
-			<?php echo iText("Autor", "plantilla_internacional"); ?>: Jesús María de Quevedo Tomé. <b><span title='jequeto@gmail.com'><?php echo iText("Contactar", "plantilla_internacional"); ?>: <img src='<?php echo \core\URL::generar_sin_idioma(); ?>recursos/imagenes/generales/email.png' height='25px' /></span></b><br />
-			<?php echo iText("Fecha última actualización", "plantilla_internacional"); ?>: 18/03/2014.
+			<?php echo \iText("Autor", "plantilla_internacional"); ?>: Jesús María de Quevedo Tomé. <b><span title='jequeto@gmail.com'><?php echo iText("Contactar", "plantilla_internacional"); ?>: <img src='<?php echo \core\URL::generar_sin_idioma(); ?>recursos/imagenes/generales/email.png' height='25px' /></span></b><br />
+			<p><?=\iText("pie.p2", "plantilla_internacional"); ?></p>
+			<?php echo iText("Fecha última actualización", "plantilla_internacional"); ?>: 24/03/2014.
 		</div>
 		
-		<div id='globals'>
+<!--		<div id='globals'>
 			<?php
-				var_dump($GLOBALS);
+//				var_dump($GLOBALS);
 			?>
-		</div>
+		</div>-->
 		
 	</body>
 

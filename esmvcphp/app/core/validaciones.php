@@ -371,7 +371,14 @@ class Validaciones  {
 	}
 
 	
-	
+	public static function errores_file_name($cadena=null) {
+		
+		$mensaje = false;
+		if (is_string($cadena) && strlen($cadena))
+			if ( ! preg_match("/^\w+(\.\w+)?$/i", $cadena))
+				$mensaje = "El nombre del fichero no es correcto o tiene caracteres no permitidos.";
+		return $mensaje;
+	}
 
 	/**
 	 * Identificador de variables o de claves internas. Solo letras, números y _. NO puede empezar por número

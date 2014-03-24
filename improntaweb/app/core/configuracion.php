@@ -19,7 +19,7 @@ namespace core {
 		);
 
 		// Usar sesiones de trabajo (activar array $_SESSION)
-		public static $session_name = "BIBLIOTECABABELID";
+		public static $session_name = "IMPRONTAWEBID";
 		public static $session_activate = true;
 		public static $session_lifetime = 0; // Segundos de duración de la cookie de sessionsession.cookie_lifetime
 		public static $session_cookie_path = "/";
@@ -35,16 +35,16 @@ namespace core {
 
 
 		// Gestión de usuarios si hay usuarios distintos
-		public static $usuarios = false; // True => hay usuaruiso or false => no hay usuarios
+		public static $usuarios = true; // True => hay usuarios, false => no hay usuarios.
 		public static $usuarios_origen = "bd"; // Valores válidos "bd" o "ACL" que es interna La lista de usuarios se define al final de esta clase
 		// Regeneración de id de cookie de session al cambiar de usuario
 		public static $regenerar_session_id = true;
 		// Control acceso a recursos
-		public static $control_acceso_recursos = true;
+		public static $control_acceso_recursos = false;
 
 		// Gestión de inactividad para usuario logueados
-		public static $sesion_minutos_inactividad = 20; // num >= 0. 0 Implica sin control
-		public static $sesion_minutos_maxima_duracion = 120; // Duración máxima de una conexión. 0 Implica sin control.
+		public static $sesion_minutos_inactividad = 0; // num >= 0. 0 Implica sin control
+		public static $sesion_minutos_maxima_duracion = 0; // Duración máxima de una conexión. 0 Implica sin control.
 
 
 		// Gestión de idiomas
@@ -69,6 +69,7 @@ namespace core {
 		public static $use_db = true;
 		// localhost
 		public static $db = array(
+			"dsn"      => "mysql:host=localhost;dbname=daw2", // Usada por PDO	
 			'server'   => 'localhost',
 			'user'     => 'daw2_user',
 			'password' => 'daw2_user',
@@ -134,4 +135,5 @@ namespace core {
 	} // Fin de la clase 
 	
 } // Fin namespace \core
+
 

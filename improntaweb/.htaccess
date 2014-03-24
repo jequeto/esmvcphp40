@@ -4,12 +4,12 @@
 <IfModule mod_rewrite.c>
 
 	# disable directory listing
-	Options -Indexes +FollowSymLinks -MultiViews
+#	Options -Indexes +FollowSymLinks MultiViews
 
 	RewriteEngine on
 	RewriteOptions Inherit
 
-	RewriteBase /tallerimprontaweb/
+#	RewriteBase /tallerimprontaweb/
 
 	# Funciona
 	# URL amigable tipo .../app_root/parametro1/parametro2/parametro3/[parametro4/...]
@@ -21,6 +21,7 @@
 	# RewriteRule .* index.php [QSA,L,NS]
 
 	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
 	RewriteRule ^(.*)$ index.php [QSA,L,NS]
     
 </IfModule>

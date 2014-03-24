@@ -1,2 +1,2 @@
 <p><?php echo \core\Idioma::text("inicio.index.p1", "plantilla_internacional"); ?></p>
-<p><?php echo \core\Idioma::text("inicio.index.p2", "plantilla_internacional"); ?><button onclick='window.location.assign("<?php print(\core\URL::generar("libros")); ?>");'><?php echo \core\Idioma::text("aquí", "plantilla_internacional"); ?></button></p>
+<p><?php echo \core\Idioma::text("inicio.index.p2", "plantilla_internacional"); ?><button onclick='window.location.assign("<?php print(\core\URL::generar("visitantes/index")); ?>");'><?php echo \core\Idioma::text("aquí", "plantilla_internacional"); ?></button></p>

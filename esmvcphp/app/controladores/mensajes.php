@@ -18,7 +18,7 @@ class mensajes extends \core\Controlador {
 	 */
 	public function mensaje(array $datos = array()) {
 		
-		if ( ! isset($_SESSION["mensaje"]) && isset($datos["mensaje"]) ) {
+		if ( 0 and ! isset($_SESSION["mensaje"]) && isset($datos["mensaje"]) ) {
 			$_SESSION["mensaje"] = $datos["mensaje"];
 			if ( isset($datos['url_continuar']) &&  ! isset($_SESSION["url_continuar"])) {
 				$_SESSION["url_continuar"] = $datos['url_continuar'];
