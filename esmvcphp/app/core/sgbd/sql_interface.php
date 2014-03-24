@@ -65,7 +65,7 @@ namespace core\sgbd;
 	/**
 	 * Ejecuta la consulta SQL que se pasa en el parámetro $consulta.
 	 * Se ejecuta sobre la conexión iniciada con el SGBD.
-	 * Devuelve false si fallo, true si éxito para consultas que no devuelven filas, y array conteniendo un array por cada fila para las consultas que devuelven filas.
+	 * Devuelve false si fallo, true si éxito para consultas que no devuelven filas, y array conteniendo un array por cada fila para las consultas que devuelven filas. Para consultas de inserción, si éxito, devuelve el valor de la función last_insert_id();
 	 * 
 	 * @param string $consulta Cadena con la consulta SQL
 	 * @return fasle|array false|array()|array(0=>array('col1'=>val1, 'col2'=>val2, ...), 1=>array('col1'=>val1, 'col2'=>val2, ...), ...) Devuleve false si hubo un error de ejecución de la consulta. Devuelve array vacío si no hay resultado.

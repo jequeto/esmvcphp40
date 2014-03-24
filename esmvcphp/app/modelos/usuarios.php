@@ -60,6 +60,7 @@ class usuarios extends \modelos\Modelo_SQL {
 			select id, login, password, fecha_confirmacion_alta
 			from ".self::get_prefix_tabla('usuarios')."
 			where login = '$login' 
+			limit 1
 		";
 		$filas = self::recuperar_filas($sql);
 		

@@ -4,6 +4,7 @@
  * @since: 2014 enero
 */
 
+use daw2;
 
 /* ******************************************* */
 /* Para la aplicación esmvcphp (todos)         */

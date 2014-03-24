@@ -92,7 +92,7 @@ class usuarios extends \core\Controlador {
 					}
 					
 					
-					if  ($ respuesta == false or $respuesta == 'existe') {
+					if  ($respuesta == false or $respuesta == 'existe') {
 						$datos['errores']['validacion'] = 'Error en login o password';
 						\core\Distribuidor::cargar_controlador("usuarios", "form_login", $datos);
 					}
