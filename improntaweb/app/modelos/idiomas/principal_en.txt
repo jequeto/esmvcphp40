@@ -1,9 +1,9 @@
 key|text
-title|MVC Application
+title|I Skill Show
 leyenda_menu|Menu - Navigation bar
 Saludo|Greeting
-Inicio|
-Visitantes|
+Inicio|Home
+Visitantes|Visitors
 Usuarios|Users
 Roles|Roles
 h1#titulo|I Profesional Skills Show

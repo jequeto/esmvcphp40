@@ -51,6 +51,8 @@ namespace core {
 		public static $idioma_sensibilidad = true;
 		public static $idioma_por_defecto = "es";
 		public static $idioma_seleccionado;
+		// Fichero que contiene las traducciones en .../app/modelos/idiomas/fichero_lang.txt
+		public static $idioma_fichero_por_defecto = "principal";
 		// Idiomas reconocidos en los que puede respondeer la aplicación
 		public static $idiomas_reconocidos = "es|en|fr";
 

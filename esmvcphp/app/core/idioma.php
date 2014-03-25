@@ -33,6 +33,7 @@ namespace core {
 			if (preg_match($patron, $lang)) {
 				\core\Configuracion::$idioma_seleccionado = $lang;
 				// Enviamos la cookie para que recuerde el idioma
+				// No enviamos cookies. El recordatorio del idioma lo hacemos mediante un parámetro de la URL
 				// Si es igual al idioma por defecto borramos la cookie
 				if ( \core\Configuracion::$idioma_seleccionado == \core\Configuracion::$idioma_por_defecto) {
 					// Borramos la cookie
@@ -45,7 +46,6 @@ namespace core {
 				}
 			}
 
-	//		echo "depuración:".__METHOD__." $lang<br />";
 		}
 
 		/**
@@ -67,8 +67,11 @@ namespace core {
 		 * @param string $lang
 		 * @return string
 		 */
-		public static function text($key, $section , $lang = null ) {
-
+		public static function text($key, $section = "DEFAULT" , $lang = null ) {
+			
+			if ($section == "DEFAULT")
+				$section = \core\Configuracion::$idioma_fichero_por_defecto;
+			
 			return \modelos\Idiomas::get($key, $section, $lang);
 
 		}
@@ -78,8 +81,7 @@ namespace core {
 } // Fin namespace core
 
 
-namespace {
-	// namespace \ raíz
+namespace {	// namespace \ raíz
 	
 	/**
 	 * Sinónimo de \core\Idiomas::text()
@@ -89,9 +91,14 @@ namespace {
 	 * @param string $lang
 	 * @return string
 	 */
-	function iText($key, $section , $lang = null ) {
+	function iText($key, $section = "DEFAULT" , $lang = null ) {
 		
+		if ($section == "DEFAULT")
+			$section = \core\Configuracion::$idioma_fichero_por_defecto;
+
 		return \modelos\Idiomas::get($key, $section, $lang);
 		
 	}
+	
+	
 }

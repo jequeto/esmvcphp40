@@ -70,7 +70,7 @@ class Idiomas {
 	 * @return array
 	 */
 	public static function get($key, $seccion, $lang = null) {
-		
+		exit(__METHOD__.$seccion);
 		if ( ! $lang )
 			$lang = \core\Configuracion::$idioma_seleccionado;
 		if ( ! $lang )
