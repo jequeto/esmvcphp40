@@ -24,7 +24,7 @@ class visitantes extends \core\Controlador {
 	public function pagina(array $datos = array()) {
 
 		$validaciones = array(
-			"id" => "errores_requerido",
+			"p3" => "errores_requerido",
 			"p4" => "errores_requerido && errores_file_name",
 		);
 		

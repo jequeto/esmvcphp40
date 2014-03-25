@@ -9,7 +9,7 @@
 	RewriteEngine on
 	RewriteOptions Inherit
 
-#	RewriteBase /tallerimprontaweb/
+	RewriteBase /tallerimprontaweb/
 
 	# Funciona
 	# URL amigable tipo .../app_root/parametro1/parametro2/parametro3/[parametro4/...]
