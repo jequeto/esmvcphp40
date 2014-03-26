@@ -1,33 +1,33 @@
 key|text
-title|I Training Fair
-Usuario|User
-Conectar|Log in
-Regístrate|Sign in
-leyenda_menu|Menu - Navigation bar
-Saludo|Greeting
-Inicio|Home
-Visitantes|Visitors
-Usuarios|Users
-Roles|Roles
-Permisos|Privileges
-h1#titulo|I Training Fair
-h1#subtitulo|Show: Put your footprint in a Web
+Acciones|Actions
+aquí|here
 Autor|Author
-pie.p2|Teacher of the training studies of Web Application Development
-Fecha última actualización|Last Updated
-Español|Spanish
-Inglés|English
+Conectar|Log in
 Contactar|Contact
+Español|Spanish
+Fecha última actualización|Last Updated
+Fecha última modificación|Last update time
+h1#subtitulo|Show: Put your footprint in a Web
+h1#titulo|I Training Fair
+Impronta de|Footprint of
+Inglés|English
 inicio.index.p1|Welcome to the workshop "Put your footprint in a Web Application".
 inicio.index.p2|Click the button to see the visitors.
 inicio.index.p3|Wellcome to de application develloped on PHP-POO with MVC pattern.
 inicio.index.p4|The next two images represent the Model View Controller pattern (MVC).
-visitantes.index.h1|Visitors of the to the workshop "Put your footprint in a Web Application"
+Inicio|Home
+leyenda_menu|Menu - Navigation bar
+Nombre|Name
+Permisos|Privileges
+pie.p2|Teacher of the training studies of Web Application Development
+Regístrate|Sign in
+Roles|Roles
+Saludo|Greeting
+title|I Training Fair
+Usuario|User
+Usuarios|Users
 visitantes.index.action1|Show your footprint inside the application
 visitantes.index.action2|Show your footprint outside the application
-aquí|here
-Nombre|Name
-Fecha última modificación|Last update time
-Acciones|Actions
+visitantes.index.h1|Visitors of the workshop "Put your footprint in a Web Application"
+Visitantes|Visitors
 Volver|Go Back
-Impronta de|Footprint of
