@@ -1,15 +1,19 @@
 key|text
-title|I Skill Show
+title|I Training Fair
+Usuario|User
+Conectar|Log in
+Regístrate|Sign in
 leyenda_menu|Menu - Navigation bar
 Saludo|Greeting
 Inicio|Home
 Visitantes|Visitors
 Usuarios|Users
 Roles|Roles
-h1#titulo|I Profesional Skills Show
+Permisos|Privileges
+h1#titulo|I Training Fair
 h1#subtitulo|Show: Put your footprint in a Web
 Autor|Author
-pie.p2|Teacher of the prosional skill studies of Web Application Development
+pie.p2|Teacher of the training studies of Web Application Development
 Fecha última actualización|Last Updated
 Español|Spanish
 Inglés|English

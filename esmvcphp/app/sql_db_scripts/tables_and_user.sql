@@ -40,7 +40,11 @@ character set utf8 collate utf8_general_ci
 ;
 
 
--- Recursos almacena la colección de funcionalidades que es posible desarrollar en la aplicación.
+-- Metodos almacena la colección de funcionalidades que es posible desarrollar en la aplicación.
+-- Cada funcionalidad se desarrolla dentro de un método de una determinada clase de la carpeta (namespace) controladores
+-- Como criterio de simplificación, si hay dos métodos en una clase A, llamados
+-- form_insertar y form_insertar_validar, solo se guarda el permiso form_insertar,
+-- pues por lógica quien tiene el permiso para recuperar un formulario también tendrá permiso para enviarlo y validarlo.
 drop table if exists daw2_metodos;
 create table daw2_metodos
 ( id integer unsigned auto_increment not null

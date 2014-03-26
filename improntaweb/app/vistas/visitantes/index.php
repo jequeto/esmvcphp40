@@ -1,5 +1,5 @@
 <div id='visitantes'>
-	<h1><?=\iText("visitantes.index.h1","principal")?></h1>
+	<h1><?=\iText("visitantes.index.h1" , "principal")?></h1>
 	
 	<table border='1px'>
 		<thead>

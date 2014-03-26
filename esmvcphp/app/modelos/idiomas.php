@@ -53,7 +53,7 @@ class Idiomas {
 			// Llenamos el array self::$libros, excluimos la línea 0 que tiene el nombre de las columnas
 			// $numero va a ser el id del libro
 			if ($numero != 0) {
-				self::$textos[$lang][$seccion][$partes[0]] = $partes[1]; 
+				self::$textos[$lang][$seccion][$partes[0]] = (isset($partes[1]) ? $partes[1] : $partes[0]); 
 			}
 		}
 //		print "<pre>"; print_r(self::$textos);print "</pre>";

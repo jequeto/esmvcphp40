@@ -184,3 +184,16 @@ insert into daw2_articulos
 ;
 
 
+/* ******************************************* */
+/* Para la aplicación improntaweb    */
+/* ******************************************* */
+
+insert into daw2_metodos
+  (controlador,		metodo) values
+  ('visitantes'		,'*')
+;
+
+insert into daw2_roles_permisos
+  (rol					,controlador		,metodo) values
+  ('usuarios'			,'visitantes'		,'*')
+;

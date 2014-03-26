@@ -39,8 +39,9 @@ namespace core {
 		public static $usuarios_origen = "bd"; // Valores válidos "bd" o "ACL" que es interna La lista de usuarios se define al final de esta clase
 		// Regeneración de id de cookie de session al cambiar de usuario
 		public static $regenerar_session_id = true;
+		
 		// Control acceso a recursos
-		public static $control_acceso_recursos = false;
+		public static $control_acceso_recursos = true;
 
 		// Gestión de inactividad para usuario logueados
 		public static $sesion_minutos_inactividad = 0; // num >= 0. 0 Implica sin control

@@ -1,11 +1,15 @@
 key|text
 title|I Feria FP
+Usuario|
+Conectar|
+Regístrate|
 leyenda_menu|Menú - Barra de navegación
 Saludo|
 Inicio|
 Visitantes|
 Usuarios|
 Roles|
+Permisos|
 h1#titulo|I Feria de FP
 h1#subtitulo|Taller: Pon tu impronta en una aplicación Web
 Autor|
