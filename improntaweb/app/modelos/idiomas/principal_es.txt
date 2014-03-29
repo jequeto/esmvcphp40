@@ -4,6 +4,8 @@ aquí|
 Autor|
 Conectar|
 Contactar|
+Descargar|
+Desconectar|
 Español|
 Fecha última actualización|
 Fecha última modificación|
@@ -15,6 +17,7 @@ inicio.index.p1|Bienvenido al taller "Pon tu impronta en una aplicación Web".
 inicio.index.p2|Pulsa el botón para ver los visitantes.
 inicio.index.p3|Bienvenido a la aplicación desarrollada en PHP-POO con patrón MVC.
 inicio.index.p4|Las dos imágenes representan el Modelo Vista Controlador (MVC).
+inicio.index.p5|Pulsa en el botón para descargar la guía del taller
 Inicio|
 leyenda_menu|Menú - Barra de navegación
 Nombre|

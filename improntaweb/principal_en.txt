@@ -1,0 +1,29 @@
+key|text
+title|I Skill Show
+leyenda_menu|Menu - Navigation bar
+Saludo|Greeting
+Inicio|
+Visitantes|
+Usuarios|Users
+Roles|Roles
+h1#titulo|I Profesional Skills Show
+h1#subtitulo|Show: Put your footprint in a Web
+Autor|Author
+pie.p2|Teacher of the prosional skill studies of Web Application Development
+Fecha última actualización|Last Updated
+Español|Spanish
+Inglés|English
+Contactar|Contact
+inicio.index.p1|Welcome to the workshop "Put your footprint in a Web Application".
+inicio.index.p2|Click the button to see the visitors.
+inicio.index.p3|Wellcome to de application develloped on PHP-POO with MVC pattern.
+inicio.index.p4|The next two images represent the Model View Controller pattern (MVC).
+visitantes.index.h1|Visitors of the to the workshop "Put your footprint in a Web Application"
+visitantes.index.action1|Show your footprint inside the application
+visitantes.index.action2|Show your footprint outside the application
+aquí|here
+Nombre|Name
+Fecha última modificación|Last update time
+Acciones|Actions
+Volver|Go Back
+Impronta de|Footprint of

@@ -1,0 +1,29 @@
+key|text
+title|I Feria FP
+leyenda_menu|Menú - Barra de navegación
+Saludo|
+Inicio|
+Visitantes|
+Usuarios|
+Roles|
+h1#titulo|I Feria de FP
+h1#subtitulo|Taller: Pon tu impronta en una aplicación Web
+Autor|
+pie.p2|Profesor del ciclo formativo de Desarrollo de Aplicaciones Web
+Fecha última actualización|
+Español|
+Inglés|
+Contactar|
+inicio.index.p1|Bienvenido al taller "Pon tu impronta en una aplicación Web".
+inicio.index.p2|Pulsa el botón para ver los visitantes.
+inicio.index.p3|Bienvenido a la aplicación desarrollada en PHP-POO con patrón MVC.
+inicio.index.p4|Las dos imágenes representan el Modelo Vista Controlador (MVC).
+visitantes.index.h1|Visitantes del taller "Pon tu impronta en una aplicación Web"
+visitantes.index.action1|Ver la impronta dentro de la aplicación
+visitantes.index.action2|Ver la impronta fuera de la aplicación
+aquí|
+Nombre|
+Fecha última modificación|
+Acciones|
+Volver|
+Impronta de|

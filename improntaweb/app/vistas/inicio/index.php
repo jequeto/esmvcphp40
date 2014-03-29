@@ -1,5 +1,6 @@
 <p><?=\core\Idioma::text("inicio.index.p1", "principal"); ?></p>
-<p><?=\core\Idioma::text("inicio.index.p2", "principal"); ?><button onclick='window.location.assign("<?php print(\core\URL::generar("visitantes/index")); ?>");'><?php echo \core\Idioma::text("aquí", "principal"); ?></button></p>
+<p><?=\core\Idioma::text("inicio.index.p2", "principal"); ?>&nbsp;<button onclick='window.location.assign("<?php print(\core\URL::generar("visitantes/index")); ?>");'><?php echo \core\Idioma::text("aquí", "principal"); ?></button></p>
+<p><?=\core\Idioma::text("inicio.index.p5", "principal"); ?>&nbsp;<button onclick='window.location.assign("<?php print(\core\URL::generar_sin_idioma("recursos/pdf")); ?>taller pon tu impronta en una aplic web v04.pdf");'><?php echo \core\Idioma::text("Descargar", "principal"); ?>&nbsp;</button></p>
 <p><?=\core\Idioma::text("inicio.index.p3", "principal"); ?></p>
 <p><?=\core\Idioma::text("inicio.index.p4", "principal"); ?></p
 <a href="docs/Modelo_Vista_Controlador_v05.pdf" target="_blank">

@@ -4,6 +4,8 @@ aquí|here
 Autor|Author
 Conectar|Log in
 Contactar|Contact
+Descargar|Download
+Desconectar|Log out
 Español|Spanish
 Fecha última actualización|Last Updated
 Fecha última modificación|Last update time
@@ -15,6 +17,7 @@ inicio.index.p1|Welcome to the workshop "Put your footprint in a Web Application
 inicio.index.p2|Click the button to see the visitors.
 inicio.index.p3|Wellcome to de application develloped on PHP-POO with MVC pattern.
 inicio.index.p4|The next two images represent the Model View Controller pattern (MVC).
+inicio.index.p5|Click de button to dowload the show's guide
 Inicio|Home
 leyenda_menu|Menu - Navigation bar
 Nombre|Name
