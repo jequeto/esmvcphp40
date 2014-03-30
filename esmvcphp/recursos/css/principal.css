@@ -132,3 +132,15 @@ table td, table th {
 .sendero_paso {
 	text-decoration: none;
 }
+
+table.resultados {
+	
+}
+
+table.resultados .fila_par {
+	background-color: lightcyan;
+}
+
+table.resultados .fila_impar {
+	background-color: cyan;
+}

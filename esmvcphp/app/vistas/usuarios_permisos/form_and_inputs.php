@@ -1,4 +1,3 @@
-
 <form method='post' name='<?php echo \core\Array_Datos::contenido("form_name", $datos); ?>' action="?menu=<?php echo \core\Distribuidor::get_controlador_instanciado(); ?>&submenu=form_modificar_validar" >
 	
 	<input id='login' name='login' type='hidden' value='<?php echo \core\Array_Datos::contenido('login', $datos); ?>' />

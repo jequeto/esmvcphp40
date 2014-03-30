@@ -1,9 +1,9 @@
 <?php
 namespace controladores;
 
-class roles_permisos extends \core\Controlador {
 
-	
+
+class roles_permisos extends \core\Controlador {
 	
 	/**
 	 * Presenta una <table> con las filas de la tabla con igual nombre que la clase.
@@ -14,6 +14,7 @@ class roles_permisos extends \core\Controlador {
 		$validaciones=array(
 			"id" => "errores_requerido && errores_identificador && errores_referencia:id/roles/rol"
 		);
+		
 		if ( ! $validacion = ! \core\Validaciones::errores_validacion_request($validaciones, $datos)) {
 			$datos['mensaje'] = 'Datos erróneos para identificar el rol a consultar';
 //			 var_dump($_REQUEST); var_dump($datos); exit();
@@ -22,7 +23,6 @@ class roles_permisos extends \core\Controlador {
 		}
 		else {
 			
-	
 			if ( ! $filas = \modelos\roles_permisos::recuperar_permisos($datos["values"]["id"])) {
 				$datos['mensaje'] = 'Error al recuperar la fila de la base de datos';
 				\core\Distribuidor::cargar_controlador('mensajes', 'mensaje', $datos);
