@@ -1,6 +1,7 @@
 <?php
 namespace modelos;
 
+
 class Modelo_SQL extends \core\sgbd\bd {
 	
 	

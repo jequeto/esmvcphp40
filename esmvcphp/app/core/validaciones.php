@@ -375,7 +375,7 @@ class Validaciones  {
 		
 		$mensaje = false;
 		if (is_string($cadena) && strlen($cadena))
-			if ( ! preg_match("/^\w+(\.\w+)?$/i", $cadena))
+			if ( ! preg_match("/^.+$/i", $cadena))
 				$mensaje = "El nombre del fichero no es correcto o tiene caracteres no permitidos.";
 		return $mensaje;
 	}

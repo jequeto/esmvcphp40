@@ -83,7 +83,7 @@ class HTTP_Respuesta extends \core\Clase_Base {
 		self::send_header();
 
 		// Enviar COOKIES
-		self::cookies_send();
+		self::send_cookies();
 
 		// Enviar BODY
 		self::send_body();
@@ -166,7 +166,7 @@ class HTTP_Respuesta extends \core\Clase_Base {
 	}
 	
 	
-	private static function cookies_send() {
+	private static function send_cookies() {
 		
 		foreach (self::$cookies as $cookie) {
 			setcookie ( $cookie["name"] , $cookie["value"] , $cookie["expire"] , $cookie["path"], $cookie["domain"], $cookie["secure"], $cookie["httponly"] );

@@ -1,6 +1,8 @@
 <?php
 namespace controladores;
 
+
+
 class usuarios_permisos extends \core\Controlador {
 
 	

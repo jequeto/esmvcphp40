@@ -32,7 +32,7 @@ order by mt.controlador,mt.metodo
 	}
 
 
-	public static function modificar_permisos($login, $permisos = array()) {
+	public static function modificar_permisos($login, array $permisos = array()) {
 
 		$validacion = true;
 		
