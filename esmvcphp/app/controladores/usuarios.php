@@ -66,7 +66,7 @@ class usuarios extends \core\Controlador {
 				);
 
 				$validacion = ! \core\Validaciones::errores_validacion_request($validaciones, $datos);
-				if ($validacion && \core\Configuracion::$form_login_catcha) {
+				if ($validacion && \core\Configuracion::$form_login_captcha) {
 					require_once(PATH_APP.'lib/php/recaptcha-php-1.11/recaptchalib.php');
 					$privatekey = "6Lem1-sSAAAAAPfnSmYe5wyruyuj1B7001AJ3CBh";
 					$resp = recaptcha_check_answer ($privatekey,
@@ -446,9 +446,9 @@ class usuarios extends \core\Controlador {
 		// Datos que no han venido en el formulario
 		$_REQUEST['clave_confirmacion'] = \core\Random_String::generar(30);
 		
-		$validacion_catcha = true; // Iniciamos la variable.
+		$validacion_captcha = true; // Iniciamos la variable.
 		
-		if ( \core\Configuracion::$form_insertar_externo_catcha) {
+		if ( \core\Configuracion::$form_insertar_externo_captcha) {
 					require_once(PATH_APP.'lib/php/recaptcha-php-1.11/recaptchalib.php');
 					$privatekey = "6Lem1-sSAAAAAPfnSmYe5wyruyuj1B7001AJ3CBh";
 					$resp = recaptcha_check_answer ($privatekey,
@@ -457,14 +457,14 @@ class usuarios extends \core\Controlador {
 												  $_POST["recaptcha_response_field"]);
 
 					if (!$resp->is_valid) {
-							$validacion_catcha = false;
+							$validacion_captcha = false;
 							$datos['errores']['validacion'] = 'Error de intruducción del captcha.';
 //							\core\Distribuidor::cargar_controlador("usuarios", "form_login", $datos);
 					}
 
 		}
 		
-		if (self::form_insertar_validar($datos) && $validacion_catcha) {
+		if (self::form_insertar_validar($datos) && $validacion_captcha) {
 						
 			$datos["mensaje"] = "Se ha grabado correctamente el usuario. ";
 			
@@ -504,9 +504,9 @@ class usuarios extends \core\Controlador {
 			
 		}
 		else {
-			if ( ! $validacion_catcha) {
+			if ( ! $validacion_captcha) {
 				usset($datos["errores"]);
-				$datos["errores"]["validacion"] = "Errores en el código catcha.";
+				$datos["errores"]["validacion"] = "Errores en el código captcha.";
 			}
 			\core\Distribuidor::cargar_controlador("usuarios", "form_insertar_externo",$datos);
 		}

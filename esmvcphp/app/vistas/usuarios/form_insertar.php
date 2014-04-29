@@ -25,7 +25,7 @@
 		<span class='requerido'>Requerido</span><?php echo \core\HTML_Tag::span_error('password2', $datos); ?>
 		<br />
 		<?php
-		if (\core\Distribuidor::get_metodo_invocado() == "form_insertar_externo" && \core\Configuracion::$form_insertar_externo_catcha) {
+		if (\core\Distribuidor::get_metodo_invocado() == "form_insertar_externo" && \core\Configuracion::$form_insertar_externo_captcha) {
 			require_once(PATH_APP.'lib/php/recaptcha-php-1.11/recaptchalib.php');
 			$publickey = "6Lem1-sSAAAAAGBkb_xsqktWUMRvoYBT4z0DZL3U"; // you got this from the signup page
 			echo recaptcha_get_html($publickey);

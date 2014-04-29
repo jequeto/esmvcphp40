@@ -10,7 +10,7 @@ namespace core {
 		public static $controlador_por_defecto = 'inicio';
 		public static $metodo_por_defecto = 'index';
 		public static $plantilla_por_defecto = 'plantilla_principal';
-		public static $plantilla_administrator = 'plantilla_administrator';
+		public static $plantilla_administrator = 'plantilla_principal';
 
 		// Respuesta HTTP
 		public static $tipo_mime_por_defecto = 'text/html';
@@ -19,7 +19,7 @@ namespace core {
 		);
 
 		// Usar sesiones de trabajo (activar array $_SESSION)
-		public static $session_name = "BIBLIOTECABABELID";
+		public static $session_name = "PHPSESSID_FOROS";
 		public static $session_activate = true;
 		public static $session_lifetime = 0; // Segundos de duración de la cookie de sessionsession.cookie_lifetime
 		public static $session_cookie_path = "/";
@@ -35,22 +35,24 @@ namespace core {
 
 
 		// Gestión de usuarios si hay usuarios distintos
-		public static $usuarios = false; // True => hay usuaruiso or false => no hay usuarios
+		public static $usuarios = true; // True => hay usuarios, false => no hay usuarios.
 		public static $usuarios_origen = "bd"; // Valores válidos "bd" o "ACL" que es interna La lista de usuarios se define al final de esta clase
 		// Regeneración de id de cookie de session al cambiar de usuario
 		public static $regenerar_session_id = true;
 		// Control acceso a recursos
-		public static $control_acceso_recursos = true;
+		public static $control_acceso_recursos = false;
 
 		// Gestión de inactividad para usuario logueados
-		public static $sesion_minutos_inactividad = 20; // num >= 0. 0 Implica sin control
-		public static $sesion_minutos_maxima_duracion = 120; // Duración máxima de una conexión. 0 Implica sin control.
+		public static $sesion_minutos_inactividad = 0; // num >= 0. 0 Implica sin control
+		public static $sesion_minutos_maxima_duracion = 0; // Duración máxima de una conexión. 0 Implica sin control.
 
 
 		// Gestión de idiomas
 		public static $idioma_sensibilidad = true;
 		public static $idioma_por_defecto = "es";
 		public static $idioma_seleccionado;
+		// Fichero que contiene las traducciones en .../app/modelos/idiomas/fichero_lang.txt
+		public static $idioma_fichero_por_defecto = "principal";
 		// Idiomas reconocidos en los que puede respondeer la aplicación
 		public static $idiomas_reconocidos = "es|en|fr";
 
@@ -69,6 +71,7 @@ namespace core {
 		public static $use_db = true;
 		// localhost
 		public static $db = array(
+			"dsn"      => "mysql:host=localhost;dbname=daw2", // Usada por PDO	
 			'server'   => 'localhost',
 			'user'     => 'daw2_user',
 			'password' => 'daw2_user',
@@ -134,4 +137,5 @@ namespace core {
 	} // Fin de la clase 
 	
 } // Fin namespace \core
+
 

@@ -58,8 +58,8 @@ namespace core {
 
 		// Formularios de login
 		public static $https_login = false;
-		public static $form_login_catcha = false;
-		public static $form_insertar_externo_catcha = false;
+		public static $form_login_captcha = false;
+		public static $form_insertar_externo_captcha = false;
 
 		// Contactos
 		public static $email_info = "info@esmvcphp.es";
