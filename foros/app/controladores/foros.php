@@ -6,6 +6,18 @@ class foros extends \core\Controlador {
 	
 	
 	
+	public function pagina_estatica(array $datos = array()) {
+
+		
+		$datos['view_content'] = \core\Vista::generar(__FUNCTION__, $datos);
+		$http_body = \core\Vista_Plantilla::generar('DEFAULT', $datos);
+		\core\HTTP_Respuesta::enviar($http_body);
+		
+//		\core\HTTP_Respuesta::enviar("<html><body>Estático</body></html>");
+		
+	}
+	
+	
 	public function index(array $datos = array()) {
 		
 //		$datos['foros'] = \modelos\Modelo_SQL::table("v_foros_usuarios_creadores")->select();
@@ -25,7 +37,7 @@ class foros extends \core\Controlador {
 	public function form_anexar(array $datos = array()) {
 			
 		$datos['view_content'] = \core\Vista::generar(__FUNCTION__, $datos, true);
-		$http_body = \core\Vista_Plantilla::generar('plantilla_libros', $datos, true);
+		$http_body = \core\Vista_Plantilla::generar('DEFAULT', $datos, true);
 		\core\HTTP_Respuesta::enviar($http_body);
 		
 	}
@@ -33,24 +45,24 @@ class foros extends \core\Controlador {
 	
 	public function form_anexar_validar(array $datos = array()) {
 		
-//		$libro = \core\HTTP_Requerimiento::post(); // Ahora los datos recibidos del formulario los recoge el metodo \core\Validaciones::errores_validacion_request($validaciones, $datos) y los deja almacenados en un array en $datos[values], pues $datos se pasa por referencia.
+
 		
 		$validaciones = array(
-			"titulo" => "errores_requerido && errores_texto && errores_prohibido_punto_y_coma",
-			"autor" => "errores_requerido && errores_texto && errores_prohibido_punto_y_coma",
-			"comentario" => "errores_texto && errores_prohibido_punto_y_coma",
+			"nombre" => "errores_requerido && errores_texto",
+			"descripcion" => "errores_texto",
 		);
 		
 		$validacion = ! \core\Validaciones::errores_validacion_request($validaciones, $datos);
 		if (! $validacion) {
-			print "-- Depuración: \$datos= "; print_r($datos);
-			\core\Distribuidor::cargar_controlador("libros", "form_anexar", $datos);
+			\core\Distribuidor::cargar_controlador("foros", "form_anexar", $datos);
 		}
 		else {
-			$libro = $datos['values']; //Valores de los input que han sido validados
-			\modelos\Libros_En_Fichero::anexar_libro($libro);
+			$foro = $datos['values']; //Valores de los input que han sido validados
+			$foro["fecha_creacion"] = date("Y-m-d");
+			$foro["usuario_id"] = \core\Usuario::$id;
+			\modelos\Foros::tabla("foros")->insert($foro);
 			$_SESSION["alerta"] = "Se han anexado correctamente los datos.";
-			\core\HTTP_Respuesta::set_header_line("location", \core\URL::generar("libros/index"));
+			\core\HTTP_Respuesta::set_header_line("location", \core\URL::generar("foros/index"));
 			\core\HTTP_Respuesta::enviar();
 		}
 		
@@ -76,8 +88,8 @@ class foros extends \core\Controlador {
 			$validacion = !\core\Validaciones::errores_validacion_request($validaciones, $datos);
 			if ( $validacion) {
 				$id = $datos['values']['id'];
-				$datos['values'] = \modelos\Libros_En_Fichero::get_libros($id); // Esta línea crea de nuevo el contenido del la entrada ['values'] y se pierde los que estuviera almacenado antes. Por eso hay que volver a generar la entrada [values][id]
-				$datos['values']['id'] = $id;
+				$clausulas["where"] = "id = $id ";
+				$datos['values'] = \modelos\Modelo_SQL::select($clausulas, "foros");
 			}
 		}
 		if ($validacion) {
@@ -86,13 +98,12 @@ class foros extends \core\Controlador {
 		}
 		else {
 			$datos = array(
-				"mensaje" => "No se ha podido identificar el id del libro a modificar.",
-				"url_continuar" =>"?menu=libros&sumbenu=index",
+				"mensaje" => "No se ha podido identificar el id del foro a modificar."
 			);
 			$datos['view_content'] = \core\Vista::generar("errores/mensaje", $datos, true);
 		}
 		
-		$http_body = \core\Vista_Plantilla::generar('plantilla_libros', $datos, true);
+		$http_body = \core\Vista_Plantilla::generar('DEFAULT', $datos, true);
 		\core\HTTP_Respuesta::enviar($http_body);
 		
 		

@@ -36,7 +36,8 @@ class Rutas {
 			// $_SERVER["REQUEST_URI"] almacenará la cadena /dato1/dato2/dato3/[...]
 			//  o /aplicacion/dato1/dato2/dato3/[...] respectivamente
 			
-			$query_string = str_replace($carpeta, "", $_SERVER["REQUEST_URI"]); 
+//			$query_string = str_replace($carpeta, "", $_SERVER["REQUEST_URI"]); 
+			$query_string = substr($_SERVER["REQUEST_URI"], strlen($carpeta)); 
 			// Ahora $query_string será una cadena de la forma "/dato1/dato2/dato3/"
 			// Quitamos la primera y la última barra si existen
 			if (stripos($query_string, "/") == 0 )

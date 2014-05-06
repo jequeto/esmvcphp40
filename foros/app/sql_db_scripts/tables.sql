@@ -7,13 +7,13 @@ create table daw2_foros
 
 , primary key (id)
 , unique (nombre)
-, foreign key (usuario_id) references usuarios(id)
+, foreign key (usuario_id) references daw2_usuarios(id)
 )
 engine=innodb
 character set utf8 collate utf8_general_ci
 ;
 
-create table daw2_temas
+create table daw2_foros_temas
 ( id integer unsigned auto_increment not null
 , nombre varchar(255) not null 
 , descripcion varchar(500) null
@@ -24,15 +24,15 @@ create table daw2_temas
 
 , primary key (id)
 , unique (foro_id, nombre)
-, foreign key (foro_id) references foros(id) on delete cascade
-, foreign key (usuario_id) references usuarios(id)
+, foreign key (foro_id) references daw2_foros_temas(id) on delete cascade
+, foreign key (usuario_id) references daw2_usuarios(id)
 )
 engine=innodb
 character set utf8 collate utf8_general_ci
 ;
 
 
-create table daw2_mensajes
+create table daw2_foros_temas_mensajes
 ( id integer unsigned auto_increment not null
 , texto varchar(255) not null 
 , fecha_creacion date not null
@@ -42,8 +42,8 @@ create table daw2_mensajes
 , usuario_id integer unsigned not null
 
 , primary key (id)
-, foreign key (tema_id) references temas(id) on delete cascade
-, foreign key (usuario_id) references usuarios(id)
+, foreign key (tema_id) references daw2_foros_temas(id) on delete cascade
+, foreign key (usuario_id) references daw2_usuarios(id)
 )
 engine=innodb
 character set utf8 collate utf8_general_ci

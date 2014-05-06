@@ -1,0 +1,3 @@
+<div>
+	vista Estática
+</div>

@@ -20,7 +20,7 @@ class Foros extends \core\Modelo_SQL {
 		$sql = "
 select f.*, u.login
 from ".self::get_prefix_tabla("foros")." f left join ".self::get_prefix_tabla("usuarios")." u
-on f.creador_usuario_id = u.id
+on f.usuario_id = u.id
 ;";
 		return self::execute($sql);
 	}
