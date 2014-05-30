@@ -247,5 +247,72 @@ class HTML_Tag extends \core\Clase_Base {
 	
 	}
 	
+	
+	/**
+	 * 
+	 * echo \core\HTML_Tag::input("dni", $datos, array("label"=>"DNI", "maxlength"=>9, ..));
+	 * 
+	 * @param type $name
+	 * @param array $datos
+	 * @param array $otherProperties
+	 * @return string
+	 */
+	public static function inputText($name, array $datos = array(), array $otherProperties = array() ) {
+		
+		$resultado = "";
+		
+		if (isset($otherProperties["label"])) {
+			$label = "<label for ='$name'>{$otherProperties["label"]}</label>";
+		}
+		else {
+			$label = "<label for ='$name'>$name</label>";
+		}
+		$input = "<input type='text' id='$name' name='$name' ";
+		if (isset($datos["values"][$name])) {
+			$input .= " value='{$datos["values"][$name]}' ";
+		}
+		foreach ($otherProperties as $key => $value) {
+			if ($key != "label")
+				$input .= " $key='$value' ";
+		}
+		$input .= " />";
+		if (isset($datos["errores"][$name])) {
+			$span = "<span class='error'>{$datos["errores"][$name]}</span>";
+		}
+		else {
+			$span = "";
+		}
+		
+		$resultado = "$label\n$input\n$span<br />\n";
+		
+		return $resultado;
+	}
+	
+	
+	/**
+	 * Visualiza los errores contenidos en $datos[errores] si los hay,
+	 * presentándolos dentro de un div como una lista no ordenada ul.
+	 * 
+	 * @param array $datos array("errores" => array("inputName1" => "error description1", "inputName2" => "description error2", ...) )
+	 * @return string Con el código html
+	 */
+	public static function errorSummary(array $datos = array()) {
+		
+		$resultado = "";
+		
+		if (isset($datos["errores"]) && count($datos["errores"])) {
+			$resultado .= "<div class='error' >";
+			$resultado .= "<p>Corrige los siguientes errores:</p>";
+			$resultado .= "<ul>";
+			foreach ($datos["errores"] as $key => $value) {
+				$resultado .= "<li>$key: $value</li>";
+			}
+			$resultado .= "</ul>";
+			$resultado .= "</div>";
+		}
+		
+		return $resultado;
+	}
+	
 
 } // Fin de la clase

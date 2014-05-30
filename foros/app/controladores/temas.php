@@ -5,7 +5,7 @@ namespace controladores;
 class temas extends \core\Controlador {
 	
 	
-	public function lista(array $datos = array()) {
+	public function index(array $datos = array()) {
 		
 		$datos['foro_id'] = \core\HTTP_Requerimiento::get("p3");
 //		
@@ -13,6 +13,13 @@ class temas extends \core\Controlador {
 //			$this->cargar_controlador("foros");
 			header("Location: ".\core\URL::generar("foros"));
 			return;
+		}
+		else {
+			$clausulas["where"] = " id = {$datos['foro_id']} ";
+			$filas = \core\Modelo_SQL::tabla("foros")->select($clausulas);
+			$datos["foro"] = $filas[0];
+			$clausulas["where"] = " foro_id = {$datos['foro_id']} ";
+			$datos["temas"] = \core\Modelo_SQL::tabla("foros_temas")->select($clausulas);
 		}
 		
 		$datos['view_content'] = \core\Vista::generar(__FUNCTION__, $datos, true);

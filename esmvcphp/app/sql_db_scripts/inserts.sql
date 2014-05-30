@@ -4,7 +4,7 @@
  * @since: 2012 enero
 */
 
-use daw2;
+-- use daw2;
 
 set names utf8;
 set sql_mode = 'traditional';

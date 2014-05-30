@@ -57,10 +57,10 @@ class foros extends \core\Controlador {
 			\core\Distribuidor::cargar_controlador("foros", "form_anexar", $datos);
 		}
 		else {
-			$foro = $datos['values']; //Valores de los input que han sido validados
-			$foro["fecha_creacion"] = date("Y-m-d");
-			$foro["usuario_id"] = \core\Usuario::$id;
-			\modelos\Foros::tabla("foros")->insert($foro);
+			$fila = $datos['values']; //Valores de los input que han sido validados
+			$fila["fecha_creacion"] = date("Y-m-d");
+			$fila["usuario_id"] = \core\Usuario::$id;
+			\modelos\Modelo_SQL::tabla("foros")->insert($fila);
 			$_SESSION["alerta"] = "Se han anexado correctamente los datos.";
 			\core\HTTP_Respuesta::set_header_line("location", \core\URL::generar("foros/index"));
 			\core\HTTP_Respuesta::enviar();
@@ -89,11 +89,14 @@ class foros extends \core\Controlador {
 			if ( $validacion) {
 				$id = $datos['values']['id'];
 				$clausulas["where"] = "id = $id ";
-				$datos['values'] = \modelos\Modelo_SQL::select($clausulas, "foros");
+				$clausulas["columnas"] = "id, nombre, descripcion";
+				$filas = \modelos\Modelo_SQL::table("foros")->select($clausulas);
+				$datos['values'] = $filas[0];
 			}
 		}
 		if ($validacion) {
-			$datos['view_content'] = \core\Vista::generar(__FUNCTION__, $datos, true);
+			var_dump($datos);
+			$datos['view_content'] = \core\Vista::generar(__FUNCTION__, $datos);
 			
 		}
 		else {
@@ -102,11 +105,9 @@ class foros extends \core\Controlador {
 			);
 			$datos['view_content'] = \core\Vista::generar("errores/mensaje", $datos, true);
 		}
-		
 		$http_body = \core\Vista_Plantilla::generar('DEFAULT', $datos, true);
 		\core\HTTP_Respuesta::enviar($http_body);
-		
-		
+			
 	}
 		
 	
@@ -168,8 +169,10 @@ class foros extends \core\Controlador {
 			$validacion = !\core\Validaciones::errores_validacion_request($validaciones, $datos);
 			if ( $validacion) {
 				$id = $datos['values']['id'];
-				$datos['values'] = \modelos\Libros_En_Fichero::get_libros($id); // Esta línea crea de nuevo el contenido del la entrada ['values'] y se pierde los que estuviera almacenado antes. Por eso hay que volver a generar la entrada [values][id]
-				$datos['values']['id'] = $id;
+				$clausulas["where"] = "id = $id ";
+				$clausulas["columnas"] = "id, nombre, descripcion";
+				$filas = \modelos\Modelo_SQL::table("foros")->select($clausulas);
+				$datos['values'] = $filas[0];
 			}
 		}
 		if ($validacion) {
@@ -178,13 +181,12 @@ class foros extends \core\Controlador {
 		}
 		else {
 			$datos = array(
-				"mensaje" => "No se ha podido identificar el id del libro a borrar.",
-				"url_continuar" =>"?menu=libros&sumbenu=index",
+				"mensaje" => "No se ha podido identificar el id del libro a borrar."
 			);
 			$datos['view_content'] = \core\Vista::generar("errores/mensaje", $datos, true);
 		}
 		
-		$http_body = \core\Vista_Plantilla::generar('plantilla_libros', $datos, true);
+		$http_body = \core\Vista_Plantilla::generar('DEFAULT', $datos, true);
 		\core\HTTP_Respuesta::enviar($http_body);
 		
 	}
