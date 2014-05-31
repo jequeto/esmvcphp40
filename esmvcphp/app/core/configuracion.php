@@ -70,23 +70,23 @@ namespace core {
 		// Debe estar activa si se utilizan usuarios y control de acceso a los recursos
 		public static $use_db = true;
 		// localhost
-		public static $db = array(
-			"dsn"      => "mysql:host=localhost;dbname=daw2", // Usada por PDO	
-			'server'   => 'localhost',
-			'user'     => 'daw2_user',
-			'password' => 'daw2_user',
-			'db_name'  => 'daw2',
-			'prefix_'  => 'daw2_'
-		);
-
-		// hostinger
 //		public static $db = array(
-//			'server'   => 'mysql.hostinger.es',
-//			'user'     => 'u452950836_daw2',
-//			'password' => 'u452950836_daw2',
-//			'db_name'   => 'u452950836_daw2',
+//			"dsn"      => "mysql:host=localhost;dbname=daw2", // Usada por PDO	
+//			'server'   => 'localhost',
+//			'user'     => 'daw2_user',
+//			'password' => 'daw2_user',
+//			'db_name'  => 'daw2',
 //			'prefix_'  => 'daw2_'
 //		);
+
+		// hostinger
+		public static $db = array(
+			'server'   => 'mysql.hostinger.es',
+			'user'     => 'u452950836_daw2',
+			'password' => 'u452950836_daw2',
+			'db_name'   => 'u452950836_daw2',
+			'prefix_'  => 'daw2_'
+		);
 
 
 
