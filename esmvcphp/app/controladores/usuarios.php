@@ -492,7 +492,7 @@ class usuarios extends \core\Controlador {
 			$additional_headers .= 'Content-type: text/html; charset=utf-8' . "\r\n";
 			$additional_headers .= 'X-Mailer: PHP/' . phpversion();
 			
-			if ( $envio_email = mail($to, $subject, $message, $additional_headers))  {
+			if ( mail($to, $subject, $message, $additional_headers))  {
 				$datos["mensaje"] .= "Se ha enviado un correo electrónico a la cuenta de email que has aportado. Haz la confirmación pinchando en vínculo que se te ha enviado, pinchando en el enlace que se envía <a href='$url' target='_blank'>$url</a>. ";
 			}
 			else {
